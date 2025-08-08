@@ -1,0 +1,79 @@
+Palavras Chave: Pandas, Print, matplotlib
+
+df = pd.read_csv("arquivo")
+
+df.head() <-> lê as primeiras 5 linhas do arquivo, ao colocar valor dentro de () trará aquela quantidade de linhas
+
+df.info() <-> Tipos de dado, contagem, nulos
+
+df.describe() <-> Estatísticas dos dados
+
+df.shape <-> quantidade de linhas e colunas da tabela
+
+df.columns <-> lê o nome das colunas
+
+df.rename(columns="dicionario", inplace=True) <-> renomeia colunas de acordo com um dicionário previamente criado com 'nome anterior' : 'novo nome',
+
+df["coluna"].value_counts()
+
+df.describe(include="object")
+
+df.isnull() <-> Mostra os dados das colunas se tem algum valor nulo (em branco).
+
+df.isnull().sum() <-> mostra a soma de todos os valores nulos.
+
+df['coluna'].unique()
+
+df[df.isnull().any(axis=1)]
+
+df['coluna'] = df['coluna'].fillna(df['coluna'].mean().round(2)) <-> Preenche uma nova coluna de valores nulos com a média encontrada da coluna arredondando com duas casas decimais.
+
+mean = média dos valores ... median = calculo mediano, para evitar valores muito distonantes
+
+df['coluna'] = df['coluna'].ffill ou bfill <-> Preenche valores nulos usando ffill(o valor anterior) bfill (próximo valor)
+
+fillna('o que preencher')
+
+df = df.dropna() <-> copia um dataframe excluindo as linhas nulas.
+
+df = df.assign(ano = df['ano'].astype('int64')) <-> mudar o tipo de dado de uma coluna.
+
+df['coluna'].value_counts().plot(kind='bar', title='titulo') <-> plota um gráfico
+
+df.grouby('coluna')['coluna de comparação'].mean().sort_values(ascending=False) <-> Ordena os dados das colunas usando comparação de média.
+
+variável = ordenação.index <-> cria uma variável como index para ser usado como base.
+
+df_ds = df_inicial[df_inicial['Cargo'] == 'Data Scientist'] <-> filtrando os dados em novo dataframe apenas pro cargo específico.
+
+Ferramentas de gráficos interessante Matplotlib e Seaborn.
+
+***Seaborn***
+sns.barplot(data=df, x='coluna', y='coluna', order=variavel) <-> plota um gráfico com as colunas solicitadas.
+
+sns.histplot(df['coluna'],bins=50, kde=True) <-> cria um gráfico de frequência dos dados. bins = granularidade(tamanho das barras) kde= uma linha de contorno
+
+sns.boxplot(x=df['coluna']) <-> gráfico em caixa
+
+sns.boxplot(x='coluna', y='coluna', data=df, order = variável de ordem
+
+adicionando cor com palette='Set2', hue='nome do eixo'
+
+***Matplotlib***
+plt.figure(figsize=(8,5)) <-> tamanho da figura
+plt.title('titulo')
+plt.xlabel('titulo do x')
+plt.ylabel('titulo do y')
+plt.show()
+
+***Plotly***
+variável = df['coluna'].value_counts().reset_index()
+variável.columns = ['coluna 1', 'coluna contagem']
+
+figura = px.pie(variável,
+		names='coluna 1',
+		values='coluna 2',
+		title='titulo',
+		hole=0.5 (buraco/rosquinha)
+		)
+figura.update_traces(textinfo='percent+label)

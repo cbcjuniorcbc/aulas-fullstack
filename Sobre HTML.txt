@@ -1,0 +1,20 @@
+interessantes sobre HTML
+
+na tag <a> usar target="_blank" abre nova aba
+
+nos textos, usar 
+<strong> negrito
+<s> tachado
+<em> italico
+<mark> marcação de texto
+
+<ul> lista não ordenada (usa * na frente)
+<ol> lista ordenada (usa 1. 2. 3. na frente)
+
+! + enter coloca o inicio do html pronto
+<aside> conteúdo lateral secundário
+<main> conteúdo principal
+<footer> rodapé
+<nav> navegação
+
+control espaço mostra os possíveis valores da propriedade - ex: font:
