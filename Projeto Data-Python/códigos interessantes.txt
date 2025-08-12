@@ -1,4 +1,4 @@
-Palavras Chave: Pandas, Print, matplotlib
+Palavras Chave: Pandas, Print, matplotlib, alura
 
 df = pd.read_csv("arquivo")
 

@@ -18,3 +18,8 @@ nos textos, usar
 <nav> navegação
 
 control espaço mostra os possíveis valores da propriedade - ex: font:
+
+CSS
+tag:not() <-> Aplica a tudo que não tiver a class ou id naquela tag especifica.
+tag:has() <-> Oposto do acima.
+tag:hover <-> Aplica a interação do usuário de passar o mouse.
